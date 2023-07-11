@@ -9,11 +9,11 @@
 <br>
 
 ---
-### 🦀🏰 the hero's journey
+## 🦀🏰 the hero's journey
 
 <br>
 
-#### 🦀🔆 house tyrell
+#### 🔆 house tyrell
 
 * **[the rust lang](1_the_rust_language)**
     - [gm world](1_the_rust_language/gm_world/)
@@ -22,39 +22,39 @@
 
 <br>
 
-#### 🦀🦌 house baratheon
+#### 🦌 house baratheon
 
 * **[arrays and strings](2_arrays_and_strings)**
 
 <br>
 
-#### 🦀🪝 house greyjoy 
+#### 🪝 house greyjoy 
 
 * **[linked lists](3_linked_lists)**
 
 <br>
 
-#### 🦀🦁 house lannister
+#### 🦁 house lannister
 
 * **[stacks and queues](4_stacks_and_queues)**
 * **[bit manipulation](5_bit_manipulation)**
 
 <br>
 
-#### 🦀🦈 house tully
+#### 🦈 house tully
 
 
 * **[math and logic](6_math_and_logic)**
 
 <br>
 
-#### 🦀🏹 house martell
+#### 🏹 house martell
 
 * **[object-oriented design](7_object_oriented_design)**
 
 <br>
 
-#### 🦀🐉 house targaryen 
+#### 🐉 house targaryen 
 
 * **[recursion and dynamic programming](8_recursion_and_dp)**
 * **[sorting and searching](9_sorting_and_searching)**
@@ -63,7 +63,7 @@
 
 <br>
 
-#### 🦀❄️ house stark
+#### ❄️ house stark
 
 * **[concurrency](10_concurrency)**
 * **[trees and graphs](11_trees_and_graphs)**
@@ -72,7 +72,7 @@
 
 ---
 
-### 🦀🏯 beyond the seventh kingdoms
+## 🏯 beyond the seventh kingdoms
 
 <br>
 
