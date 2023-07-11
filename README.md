@@ -1,4 +1,4 @@
-# 🦀 master rust the rigth way
+# 🦀 master rust the right way
 
 <br>
 
@@ -13,11 +13,17 @@
 
 <br>
 
-* **[module 1: get started](module_1_beginner)**
-* **[module 2: intermediary problems](module_2_intermediary)**
-* **[module 3: algorithms problems](module_3_algorithms)**
-* **[module 4: data structures problems](module_4_data_strcutures)**
-
+* **[module 1: the rust lang](1_the_rust_language)**
+* **[module 2: arrays and strings](2_arrays_and_strings)**
+* **[module 3: linked lists](3_linked_lists)**
+* **[module 4: stacks and queues](4_stacks_and_queues)**
+* **[module 5: bit manipulation](5_bit_manipulation)**
+* **[module 6: math and logic](6_math_and_logic)**
+* **[module 7: object oriented desig](7_objected_oriented_design)**
+* **[module 8: recursion and dynamic programming](8_recursion_and_dp)**
+* **[module 9: sorting and searching](9_sorting_and_searching)**
+* **[module 10: threads and locks](10_threads_and_locks)**
+* **[module 11: trees and graphs](11_trees_and_graphs)**
 
 <br>
 
@@ -28,4 +34,4 @@
 <br>
 
 * **[google's comprehensive rust](https://github.com/google/comprehensive-rust)**
-* **[concurrency in rust](https://google.github.io/comprehensive-rust/concurrency.html)**
+* **[my book on algorithms and data structures on python](https://github.com/go-outside-labs/algorithms-book-py)**

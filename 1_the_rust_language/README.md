@@ -182,13 +182,48 @@ fn main() {
 }
 ```
 
-#### array
+#### arrays and vectors
 
 * unlike a tuple, every element of an array must have the same type.
 * arrays must have a fixed length.
+* they allocate data in the stack rather than the heap.
+* a vector is a similar collection type provided by the standard library that can change size.
 
-```
+```rust
 fn main() {
     let a = [1, 2, 3, 4, 5];
+
+    let b: [i32; 5] = [1, 2, 3, 4, 5];
 }
 ```
+
+* you can also initialize an array containing the same value (1) and a given length (4):
+
+```rust
+let c = [1; 4;
+```
+
+* Rust will panic if a *runtime error* occurs due to attempting to access the array with an invalid index.
+
+<br>
+
+### functions
+
+* in function signatures, you must declare the type of each parameter (type annotations).
+* function bodies are made up of a series of statements optionally ending in an expression:
+    - statements are intructions that perform some action and do not return a value.
+    - expressions evaluate to a resultant value. calling a macro or a function is an expression.
+* expressions do not include ending semicolons. if you add a semicolon to the end of an expression, you turn it into a statement (and it will not return a value).
+
+```rust
+fn main() {
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!("The value of y is: {y}");
+}
+```
+
+* functions that return values must declare their type after an arrow (`->`).
