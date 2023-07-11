@@ -4,7 +4,7 @@
 
 **👉🏼 *rust is a strong static type language designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.***
 
-**👉🏼 *in this project we learn it the right way: by tackling classical algorithms and data structures problems, from zero to hero. or, from John Snow to Daenerys.***
+**👉🏼 *in this project we learn it the right way: by tackling classical algorithms and data structures problems, from zero to hero.***
 
 <br>
 
@@ -13,59 +13,24 @@
 
 <br>
 
-#### 🔆 house tyrell
 
 * **[the rust lang](1_the_rust_language)**
     - [gm world](1_the_rust_language/gm_world/)
     - [guessing game](1_the_rust_language/guessing_game/)
     - [generate random numbers](1_the_rust_language/random/numbers)
-
-<br>
-
-#### 🦌 house baratheon
-
 * **[arrays and strings](2_arrays_and_strings)**
-
-<br>
-
-#### 🪝 house greyjoy 
-
 * **[linked lists](3_linked_lists)**
-
-<br>
-
-#### 🦁 house lannister
-
 * **[stacks and queues](4_stacks_and_queues)**
 * **[bit manipulation](5_bit_manipulation)**
-
-<br>
-
-#### 🦈 house tully
-
-
 * **[math and logic](6_math_and_logic)**
-
-<br>
-
-#### 🏹 house martell
-
 * **[object-oriented design](7_object_oriented_design)**
-
-<br>
-
-#### 🐉 house targaryen 
-
 * **[recursion and dynamic programming](8_recursion_and_dp)**
 * **[sorting and searching](9_sorting_and_searching)**
     - [sorting vectors](9_sorting_and_searching/sorting_vectors)
     - [sorting vector of structs](9_sorting_and_searching/sorting_vector_structs)
-
-<br>
-
-#### ❄️ house stark
-
 * **[concurrency](10_concurrency)**
+    - [short lived threads](short_lived_threads/)
+    - [parallel pipeline](parallel_pipeline/)
 * **[trees and graphs](11_trees_and_graphs)**
 
 <br>
