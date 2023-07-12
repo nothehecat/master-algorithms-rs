@@ -47,6 +47,8 @@
     - [standard deviation](6_math_and_logic/standard_deviation/)
     - [big integers](6_math_and_logic/big_integers/)
 
+<br>
+
 7. **[object-oriented design](7_object_oriented_design)**
 
 <br>

@@ -27,13 +27,14 @@ rustc main.rs
 * you can add a new crate with `cargo add <crate name>` and update with `cargo update <crate name>`.
 
 <br>
+
 #### creating a new project
 
 ```sh
 cargo new gm_world
 ```
 
-* this command creates a cargo TOML file and a placeholder for `main.rs`:
+* this command creates a cargo `TOML` file and a placeholder for `main.rs`:
 
 ```sh
 .
@@ -89,6 +90,7 @@ cargo check
 * a compound type can group multiple values into one type. there are two primitive compound types: tuples and arrays.
 
 <br>
+
 #### integers
 
 * Types are: `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `i128`, `u128`. In doubt, default to `i32`.
@@ -134,6 +136,7 @@ fn main() {
 ```
 
 <br>
+
 #### tuples
 
 * a `tup` is a general way of grouping many values with a variety of types.
@@ -207,7 +210,7 @@ fn main() {
 }
 ```
 
-giving
+which results to:
 
 ```rust
 ints [1, 2, 3]
