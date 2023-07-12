@@ -447,7 +447,7 @@ fn main() {
 <br>
 
 * `String` is a more complex variable type on which the data is stored in the heap, instead of the stack. This allows an amount of text that is unknown at the compile time.
-* 
+
 
 ```rust
 let s = String::from("hello");
@@ -472,7 +472,7 @@ let s2 = s1;
 * To deeply copy the heap data of the `String`, not just the stack data (the pointer), Rust offers the methods `clone` (which is more expensive):
 
 ```rust
-let s1 = String::from("hello");
+let s1 = String::from("gm anon");
 let s2 = s1.clone();
 
 println!("s1 = {}, s2 = {}", s1, s2);
