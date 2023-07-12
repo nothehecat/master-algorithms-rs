@@ -1,8 +1,8 @@
-## math and logic
+# 🦀 𝟘𝟙𝟙𝟘. math and logic
 
 <br>
 
-### tl; dr
+### comparing floating-points
 
 <br>
 

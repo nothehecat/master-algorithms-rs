@@ -1,4 +1,4 @@
-# module 1: the Rust language
+# 🦀 𝟘𝟘𝟘𝟙. the Rust language
 
 <br>
 

@@ -1,12 +1,20 @@
-## concurrency, threads, locks
+# 🦀 𝟙𝟘𝟙𝟘. concurrency, threads, locks
+
 
 <br>
 
-### tl; dr
+### parallel pipelines
 
 <br>
 
 * examples of creating parallel pipelines (for instance, when using [ZeroMQ](https://zguide.zeromq.org/#Divide-and-Conquer)), where there is a data source and a data sink, with data being processed by two worker threads in parallel.
+
+<br>
+
+### mutex
+
+<br>
+
 * in terms of mutex, we see an example where we can declare global state using lazy_static, which creates a globally available static ref that requires a Mutex.
 
 <br>

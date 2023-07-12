@@ -14,64 +14,60 @@
 <br>
 
 
-1. **[the rust lang](1_the_rust_language)**
-    - [gm world](1_the_rust_language/gm_world/)
-    - [guessing game](1_the_rust_language/guessing_game/)
-    - [generate random numbers](1_the_rust_language/random/numbers)
+#### 𝟘𝟘𝟘𝟙. **[the rust lang](1_the_rust_language)**
 
-<br>
-
-2. **[arrays and strings](2_arrays_and_strings)**
-
-<br>
-
-3. **[linked lists](3_linked_lists)**
+- [gm world](1_the_rust_language/gm_world/)
+- [guessing game](1_the_rust_language/guessing_game/)
+- [generate random numbers](1_the_rust_language/random/numbers)
 
 
-<br>
-
-4. **[stacks and queues](4_stacks_and_queues)**
-
-<br>
-
-5. **[bit manipulation](5_bit_manipulation)**
+#### 𝟘𝟘𝟙𝟘. **[arrays and strings](2_arrays_and_strings)**
 
 
-<br>
 
-6. **[math and logic](6_math_and_logic)**
-    - [matrices operations](6_math_and_logic/matrices)
-    - [trigonometry](6_math_and_logic/trigonometry/)
-    - [complex numbers](6_math_and_logic/complex_numbers)
-    - [statistics](6_math_and_logic/statistics)
-    - [standard deviation](6_math_and_logic/standard_deviation/)
-    - [big integers](6_math_and_logic/big_integers/)
+#### 𝟘𝟘𝟙𝟙. **[linked lists](3_linked_lists)**
 
-<br>
 
-7. **[object-oriented design](7_object_oriented_design)**
 
-<br>
+#### 𝟘𝟙𝟘𝟘. **[stacks and queues](4_stacks_and_queues)**
 
-8. **[recursion and dynamic programming](8_recursion_and_dp)**
 
-<br>
+#### 𝟘𝟙𝟘𝟙. **[bit manipulation](5_bit_manipulation)**
 
-9. **[sorting and searching](9_sorting_and_searching)**
-    - [sorting vectors](9_sorting_and_searching/sorting_vectors)
-    - [sorting vector of structs](9_sorting_and_searching/sorting_vector_structs)
 
-<br>
 
-10. **[concurrency](10_concurrency)**
-    - [short lived threads](10_concurrency/short_lived_threads/)
-    - [parallel pipeline](10_concurrency/parallel_pipeline/)
-    - [global mutex](10_concurrency/global_mutex)
-    - [rayon example](10_concurrency/rayon_example)
+#### 𝟘𝟙𝟙𝟘. **[math and logic](6_math_and_logic)**
+- [matrices operations](6_math_and_logic/matrices)
+- [trigonometry](6_math_and_logic/trigonometry/)
+- [complex numbers](6_math_and_logic/complex_numbers)
+- [statistics](6_math_and_logic/statistics)
+- [standard deviation](6_math_and_logic/standard_deviation/)
+- [big integers](6_math_and_logic/big_integers/)
 
-<br>
 
-11. **[trees and graphs](11_trees_and_graphs)**
+
+#### 𝟘𝟙𝟙𝟙. **[object-oriented design](7_object_oriented_design)**
+
+
+
+#### 𝟙𝟘𝟘𝟘. **[recursion and dynamic programming](8_recursion_and_dp)**
+
+
+
+#### 𝟙𝟘𝟘𝟙. **[sorting and searching](9_sorting_and_searching)**
+
+- [sorting vectors](9_sorting_and_searching/sorting_vectors)
+- [sorting vector of structs](9_sorting_and_searching/sorting_vector_structs)
+
+#### 𝟙𝟘𝟙𝟘. **[concurrency](10_concurrency)**
+
+- [short lived threads](10_concurrency/short_lived_threads/)
+- [parallel pipeline](10_concurrency/parallel_pipeline/)
+- [rayon example](10_concurrency/rayon_example)
+
+
+
+#### 𝟙𝟘𝟙𝟙. **[trees and graphs](11_trees_and_graphs)**
 
 <br>
 
