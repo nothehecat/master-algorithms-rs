@@ -3,7 +3,9 @@
 <br>
 
 
-### 🐚 rust as an ahead-of-time compiled language
+## 🐚 rust as an ahead-of-time compiled language
+
+<br>
 
 * the `main` function in rust is always the first code that runs in every executable rust program.
 
@@ -20,7 +22,9 @@ rustc main.rs
 
 
 
-#### cargo
+### cargo
+
+<br>
 
 * cargo is a dependency manager and build tool, which makes adding, compiling, and managing dependencies painless and consistent across the Rust ecosystem.
 * a crate is a collection of Rust source code files. cargo coordinates external crates in the `Cargo.toml` file. 
@@ -30,9 +34,13 @@ rustc main.rs
 
 #### creating a new project
 
+<br>
+
 ```sh
 cargo new gm_world
 ```
+
+<br>
 
 * this command creates a cargo `TOML` file and a placeholder for `main.rs`:
 
@@ -44,7 +52,10 @@ cargo new gm_world
 ```
 
 <br>
+
 #### building and running with cargo
+
+<br>
 
 * alternatively, in any directory, compile and run a rust program with:
 
@@ -52,6 +63,8 @@ cargo new gm_world
 ```sh
 cargo build
 ```
+
+<br>
 
 * this command creates a file named `Cargo.lock` (which keeps track of the versions for all dependencies), and an executable inside `target/debug/` that can be run. 
 
@@ -62,6 +75,8 @@ cargo build
 ```sh
 cargo run
 ```
+
+<br>
 
 * finally, to make sure your code compiles in a fast manner without executing it, you can run:
 
@@ -79,7 +94,7 @@ cargo check
 
 ---
 
-### 🐚 variables
+## 🐚 variables
 
 <br>
 
@@ -91,7 +106,7 @@ cargo check
 
 <br>
 
-#### integers
+### integers
 
 * Types are: `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `i128`, `u128`. In doubt, default to `i32`.
 * signed or unsigned refers to whether the number can be negative, i.e., have a sign.
@@ -104,13 +119,13 @@ cargo check
 
 <br>
 
-#### floating-point numbers
+### floating-point numbers
 
 * Types are `f32` and `f64`, default to `f64`.
 
 <br>
 
-#### booleans
+### booleans
 
 ```rust
 fn main() {
@@ -122,7 +137,7 @@ fn main() {
 
 <br>
 
-#### characters
+### characters
 
 * `char` literals are specified with single quotes (as opposed to string literals that use double quotes).
 * `char` type is 4 bytes in size and represents a Unicode Scalar Value. They range from `U+0000` to `U+D7FF` and `U+E000` to `U+10FFF` inclusive.
@@ -137,7 +152,7 @@ fn main() {
 
 <br>
 
-#### tuples
+### tuples
 
 * a `tup` is a general way of grouping many values with a variety of types.
 * they have a fixed length (can't change once declared).
@@ -172,7 +187,9 @@ fn main() {
 
 <br>
 
-#### arrays 
+### arrays 
+
+<br>
 
 * unlike a tuple, every element of an array must have the same type.
 * arrays must have a fixed length.
@@ -186,6 +203,8 @@ fn main() {
     let b: [i32; 5] = [1, 2, 3, 4, 5];
 }
 ```
+
+<br>
 
 * you can also initialize an array containing the same value (1) and a given length (4):
 
@@ -209,6 +228,8 @@ fn main() {
     println!("ints_ints {:?}", ints_ints);
 }
 ```
+
+<br>
 
 which results to:
 
@@ -239,12 +260,11 @@ fn main() {
 <br>
 
 
-#### vectors
+### vectors
 
 * a vector is a similar collection type provided by the standard library that can change size (they behave like Python's lists).
 
 ```rust
-// vec1.rs
 fn main() {
     let mut v = Vec::new();
     v.push(10);
@@ -263,7 +283,6 @@ fn main() {
 which can be sliced like:
 
 ```rust
-// vec2.rs
 fn dump(arr: &[i32]) {
     println!("arr is {:?}", arr);
 }
@@ -286,7 +305,7 @@ fn main() {
 
 ---
 
-### 🐚 functions
+## 🐚 functions
 
 <br>
 
@@ -307,6 +326,8 @@ fn main() {
 }
 ```
 
+<br>
+
 * functions that return values must declare their type after an arrow (`->`).
 
 ```rust
@@ -315,11 +336,13 @@ fn plus_one(x: i32) -> i32 {
 }
 ```
 
+<br>
+
 * a `!` (as in `println!`) calls a Rust macro.
 
 <br>
 
-#### control flow
+### control flow
 
 <br>
 
@@ -341,6 +364,8 @@ fn main() {
 }
 ```
 
+<br>
+
 * Rust allows you use `if` in a `let` statement:
 
 ```rust
@@ -352,12 +377,16 @@ fn main() {
 }
 ```
 
+<br>
+
 * In Rust, there are three kinds of loops: `loop`, `while`, and `for`.
 * `break` and `continue` can be used to break from the loop.
 
 <br>
 
-#### `loop`
+### `loop`
+
+<br>
 
 * `loop` can be used to retry an operation that might fails, such as checking whether a thread has completed its job.
 
@@ -376,6 +405,8 @@ fn main() {
     println!("The result is {result}");
 }
 ```
+
+<br>
 
 * when there are multiple loops, Rust provides loop labels for `break` or `continue`.
 
@@ -422,7 +453,7 @@ fn main() {
 
 ---
 
-### 🐚 ownership
+## 🐚 ownership
 
 <br>
 
@@ -431,7 +462,7 @@ fn main() {
 
 <br>
 
-#### stack vs. heap
+### stack vs. heap
 
 <br>
 
@@ -445,7 +476,7 @@ fn main() {
 
 <br>
 
-#### the `String` type
+### the `String` type
 
 <br>
 
@@ -456,6 +487,7 @@ fn main() {
 let s = String::from("hello");
 ```
 
+<br>
 
 
 * the double colon `::` operator allows to namespace a particular function (`from`), under the `String`. With `String::from`, the memory is requested from the memory allocator at runtime. 
@@ -467,6 +499,7 @@ let s = String::from("hello");
 let s1 = String::from("hello");
 let s2 = s1;
 ```
+
 <br>
 
 #### `clone`
