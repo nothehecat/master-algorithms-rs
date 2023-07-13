@@ -26,7 +26,7 @@ rustc main.rs
 
 <br>
 
-* cargo is a dependency manager and build tool, which makes adding, compiling, and managing dependencies painless and consistent across the Rust ecosystem.
+* **[cargo](https://doc.rust-lang.org/cargo/)** is a dependency manager and build tool, which makes adding, compiling, and managing dependencies painless and consistent across the Rust ecosystem.
 * a crate is a collection of Rust source code files. cargo coordinates external crates in the `Cargo.toml` file. 
 * you can add a new crate with `cargo add <crate name>` and update with `cargo update <crate name>`.
 
@@ -84,10 +84,38 @@ cargo run
 cargo check
 ```
 
+
 <br>
 
 
-* **rustfmt** is a formatting tool ensuring a consistent coding style across developers.
+* cargo stores the output of a build into a `target` directory, in the root of the workspace, for either `debug/` and `release`.
+
+<br>
+
+### other in-box tools
+
+<br>
+
+* **[rustc](https://doc.rust-lang.org/rustc/index.html)** is the compiler for Rust, provided by the project itself (as we saw in the beginning of this doc), which includes built-in testing and linting.
+* **[rustfmt](https://rust-lang.github.io/rustfmt/?version=v1.6.0&search=)** is a formatting tool ensuring a consistent coding style across developers.
+* **[rustdocs](https://doc.rust-lang.org/rustdoc/index.html)** is the Rust's standard tool called that generates markdown or HTML documentation for Rust projects. files should start with ` //!` to indicate module-level or crate-level documentation.
+* **rustup** can be used to run rust standard documentation in your browser (with `rustup doc --std`).
+
+<br>
+
+### traits
+
+* traits allow you to abstract behavior that can be shared by different types, so that the code can express ideas in very generic and flexible ways.
+* traits can be the descriptive line on top of functions:
+
+```rust
+#[test]
+fn find_a_match() {
+}
+```
+
+* each operator (like `+=`) corresponds to a trait, which is like an abstract interface that must be implemented for each concrete type.
+
 
 <br>
 
@@ -98,11 +126,41 @@ cargo check
 
 <br>
 
-* variables and references are immutable by default.
+* variables and references are immutable by default, to make the mutable, you must add `mut`.
+* what makes something a 'variable' is that it gets assigned a computed value at runtime (it's not a constant).
 * constants are declared with `const` and always immutable.
+* values can be passed by reference, which is created by `&` and dereferenced by `*`. passing by reference is important when we have a large object and don't wish to copy it.
+
+```rust
+fn by_ref(x: &i32) -> i32 {
+    *x + 1
+}
+
+fn main() {
+    let i = 10;
+    let res1 = by_ref(&i);
+    let res2 = by_ref(&41);
+    println!("{} {}", res1,res2);
+}
+```
+
+<br>
+
 * rust handles potential failure with `Result`, which is an `enumeration` (`enum`, a type that can be in one of multiple possible states or variant).
 * a scalar type represents a single value. there are four main scalar types in Rust.
 * a compound type can group multiple values into one type. there are two primitive compound types: tuples and arrays.
+* in rust, variables of a type can be casted to another:
+
+```rust
+fn main() {
+    let mut sum = 0.0;
+    for i in 0..5 {
+        sum += i as f64;
+    }
+    println!("sum is {}", sum);
+}
+```
+
 
 <br>
 
@@ -191,15 +249,15 @@ fn main() {
 
 <br>
 
+* all statically-typed languages have arrays, which are values packed in memory.
 * unlike a tuple, every element of an array must have the same type.
-* arrays must have a fixed length.
+* arrays must have a fixed length. they can be mutable but you cannot add new elements.
 * they allocate data in the stack rather than the heap.
 
 
 ```rust
 fn main() {
     let a = [1, 2, 3, 4, 5];
-
     let b: [i32; 5] = [1, 2, 3, 4, 5];
 }
 ```
@@ -214,7 +272,7 @@ let c = [1; 4;
 
 <br>
 
-* examples how you can print arrays in Rust:
+* examples of how you can print arrays in Rust:
 
 ```rust
 fn main() {
@@ -254,6 +312,28 @@ fn main() {
 
     println!("first {:?}", first);
     println!("last {:?}", last);
+}
+```
+<br>
+
+* slices are more frequently used than arrays. they are views into an underlying array of values, in the sense that slices give you different views of the same array where a copy of data is never made.
+* slices keep track of their size and will panic if you try to access outside that size.
+* you explicitly say you want to pass an array as a slice by using `&` (call it "borrow", and note that it remains owned by the original owner).
+
+```rust
+fn sum(values: &[i32]) -> i32 {
+    let mut res = 0;
+    for i in 0..values.len() {
+        res += values[i]
+    }
+    res
+}
+
+fn main() {
+    let arr = [10,20,30,40];
+    // look at that &
+    let res = sum(&arr);
+    println!("sum {}", res);
 }
 ```
 
@@ -338,7 +418,120 @@ fn plus_one(x: i32) -> i32 {
 
 <br>
 
-* a `!` (as in `println!`) calls a Rust macro.
+
+#### macros
+
+<br>
+
+* a `!` (as in `println!`) calls a Rust macro (see more details on **[formatted_print](formatted_print/)**).
+* `{}` is the default placeholder type that works for numbers and strings, but not all the types. in other cases, for example `vec`, the debug representation `{:?}` works.
+* note that printing to the terminal is very slow. you want to reduce the number of writes that "flush" to the terminal. you can also wrap your `stdout` handle in a **[BugWriter](https://doc.rust-lang.org/1.39.0/std/io/struct.BufWriter.html)**, which by default, buffers up to 8 kB.
+
+<br>
+
+```rust
+#![allow(unused)]
+fn main() {
+use std::io::{self, Write};
+
+let stdout = io::stdout();
+let mut handle = io::BufWriter::new(stdout); //  wrap that handle in a buffer
+writeln!(handle, "foo: {}", 1337); 
+}
+```
+
+
+<br>
+
+#### `Result` and errors
+
+* functions in rust usually don't return a string, but instead, they return a **[Result](https://doc.rust-lang.org/1.39.0/std/result/index.html)**, a `enum` that contains either a `String` or an error of some type (for instance **[std::io::Error](https://doc.rust-lang.org/1.39.0/std/io/type.Result.html)**).
+
+```rust
+enum Result<T, E> {
+   Ok(T),
+   Err(E),
+}
+```
+
+<br>
+
+* you can use `match` to check which variant is (all `match` blocks need to return things of the same type):
+
+```rust
+let result = std::fs::read_to_string(FILENAME)
+match result {
+    Ok(content) => { println!("Nice file {}", contant); }
+    Err(error) => { panic!("Nope {}, error); }
+```
+
+<br>
+
+* this `match` with `panic` also can be achieved with `.unwrap()`:
+
+```rust
+let result = std::fs::read_to_string(FILENAME).unwrap();
+```
+
+<br>
+
+* if we don't want to exit the program with `panic`, we can `return`:
+
+```rust
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let result = std::fs::read_to_string(FILENAME);
+    let content = match result {
+        Ok(content) => { content },
+        Err(error) => { return Err(error.into()); }
+    };
+    println!("file content: {}", content);
+    Ok(())  // Note that we can omit "return", as long as no ;
+}
+```
+
+<br>
+
+* `Box<dyn std::error:Error>` is a `Box` that contains any type that implements the standard error trait.
+* this `match` with `return Err()` can be achieved with `?`:
+
+```rust
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let content = std::fs::read_to_string(FILENAME)?;
+    println!("file content: {}", content);
+    Ok(())
+}
+```
+
+<br>
+
+* we could also create our own error type, with a `struct`:
+
+```rust
+#[derive(Debug)]
+struct CustomError(String);
+
+fn main() -> Result<(), CustomError> {
+    let content = std::fs::read_to_string(FILEPATH)
+        .map_err(|err| CustomError(format!("Error reading `{}`: {}", FILEPATH, err)))?;
+    println!("file content: {}", content);
+    Ok(())
+}
+```
+
+<br>
+
+* or using the **[anyhow crate](https://docs.rs/anyhow)**:
+
+```rust
+use anyhow::{Context, Result};
+
+fn main() -> Result<()> {
+    let content = std::fs::read_to_string(FILEPATH)
+        .with_context(|| format!("Error reading `{}`", FILEPATH))?;
+    println!("file content: {}", content);
+    Ok(())
+}
+```
 
 <br>
 
@@ -366,7 +559,7 @@ fn main() {
 
 <br>
 
-* Rust allows you use `if` in a `let` statement:
+* Rust allows you to use `if` in a `let` statement:
 
 ```rust
 fn main() {
@@ -438,7 +631,7 @@ fn main() {
 
 <br>
 
-* a `for` loop tends to be faster and less error prone than a `while` loop.
+* a `for` loop tends to be faster and less error-prone than a `while` loop.
 
 ```rust
 fn main() {
@@ -466,8 +659,10 @@ fn main() {
 
 <br>
 
+* allocating data on the stack is fast, but limited (~megabytes), allocating data on the heap is expensive and the memory needs to be freed later (~gigabytes).
 * allocating a space in the heap (and returning its pointer) is slower than pushing to the stack. it also requires more work because the allocator must find a larger enough space to hold the data.
 * keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap are all problems that ownership addresses.
+* when a vector is modified or created, it allocates from the heap and becomes the owner of that memory. the slice borrows the memory from the vector and when the vector dies or drop, the memory goes.
 
 * the ownership rules in Rust are:
     - each value has an owner

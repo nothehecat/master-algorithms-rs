@@ -1,4 +1,4 @@
-// examples for short-lived threads
+//! examples for short-lived threads
 
 fn main() {
     let arr = &[1, 25, -4, 10];
@@ -6,10 +6,9 @@ fn main() {
     assert_eq!(max, Some(25));
 }
 
-// split an array in half and performs the work in
-// parallel threads
+// split an array in half and performs
+// the work in parallel threads
 fn find_max(arr: &[i32]) -> Option<i32> {
-    const THRESHOLD: usize = 2;
   
     if arr.len() <= THRESHOLD {
         return arr.iter().cloned().max();

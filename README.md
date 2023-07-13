@@ -1,27 +1,29 @@
-# 🦀 algorithms and data structure in Rust
+# 🦀 algorithms and data structures in Rust
 
 <br>
 
-**👉🏼 *rust is a strong static type language designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.***
+**👉🏼 rust is a strong-typed (you can't work around the type system, like Python) and static-typed language (the type is known at the compile time, like C), designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.**
 
-**👉🏼 *in this project we learn rust the right way: by tackling classical algorithms and data structures problems.***
+**👉🏼 in this project we learn rust the right way: by tackling classical algorithms and data structures problems.**
 
 <br>
 
 ---
-## 🏰 the journey
+## 🥷🏼 the journey
 
 <br>
 
 
 #### 𝟘𝟘𝟘𝟙. **[the rust lang](1_the_rust_language)**
-
 - [gm world](1_the_rust_language/gm_world/)
 - [guessing game](1_the_rust_language/guessing_game/)
-- [generate random numbers](1_the_rust_language/random/numbers)
+- [generate random numbers](1_the_rust_language/random_numbers)
+- [formatted print](1_the_rust_language/formatted_print)
 
 
 #### 𝟘𝟘𝟙𝟘. **[arrays and strings](2_arrays_and_strings)**
+- [simple arrays](simple_arrays/)
+- [slices](slice/)
 
 
 
@@ -37,6 +39,7 @@
 
 
 #### 𝟘𝟙𝟙𝟘. **[math and logic](6_math_and_logic)**
+- [recursive factorial](factorial/)
 - [matrices operations](6_math_and_logic/matrices)
 - [trigonometry](6_math_and_logic/trigonometry/)
 - [complex numbers](6_math_and_logic/complex_numbers)
@@ -73,7 +76,7 @@
 
 ---
 
-## 🏯 external resources
+## 🥷🏼 external resources
 
 <br>
 

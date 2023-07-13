@@ -1,3 +1,5 @@
+//! many examples of using the rand crate
+
 use std::io;
 use rand::Rng;
 use std::cmp::Ordering;

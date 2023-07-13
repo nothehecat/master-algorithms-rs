@@ -19,6 +19,20 @@
 
 <br>
 
+### locks
+
+* since `println!` makes your program slow (as we discussed in the first module), it helps to acquire a lock on `stdout` or `stdeer` and use `writeln!` to print directly, preventing the system from locking and unlocking `stdout` over and over:
+
+```rust
+use std::io::{self, Write};
+
+let stdout = io::stdout(); // get the global stdout entity
+let mut handle = stdout.lock(); // acquire a lock on it
+writeln!(handle, "foo: {}", 1337); 
+```
+
+<br>
+
 ---
 
 ### external resources

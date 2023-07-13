@@ -1,3 +1,5 @@
+//! many examples of complex numbers
+
 use std::f64::consts::PI;
 use num::complex::Complex;
 

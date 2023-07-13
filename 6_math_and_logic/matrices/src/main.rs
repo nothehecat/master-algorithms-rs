@@ -1,3 +1,5 @@
+//! many examples with matrices
+
 use ndarray::{arr1, arr2, Array1, array, ArrayView1};
 use nalgebra::Matrix3;
 
