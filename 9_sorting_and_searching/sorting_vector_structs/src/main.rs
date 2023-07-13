@@ -1,3 +1,5 @@
+//! many examples of sorting vectors of structs
+
 #[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
 struct Person {
     name: String,

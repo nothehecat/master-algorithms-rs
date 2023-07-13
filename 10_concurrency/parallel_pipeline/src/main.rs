@@ -1,5 +1,7 @@
-extern crate crossbeam;
-extern crate crossbeam_channel;
+//! many examples of parallel pipelines
+
+use crossbeam;
+use crossbeam_channel;
 
 use std::thread;
 use std::time::Duration;

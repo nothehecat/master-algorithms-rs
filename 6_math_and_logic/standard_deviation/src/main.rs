@@ -1,3 +1,6 @@
+//! many examples of statistics
+
+
 fn mean(data: &[i32]) -> Option<f32> {
     let sum = data.iter().sum::<i32>() as f32;
     let count = data.len();

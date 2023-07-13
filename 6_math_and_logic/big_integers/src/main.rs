@@ -1,4 +1,4 @@
-// calculation for integers exceeding 128 bits
+//! calculation for integers exceeding 128 bits
 
 use num::bigint::{BigInt, ToBigInt};
 

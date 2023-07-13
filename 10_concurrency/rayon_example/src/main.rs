@@ -1,3 +1,5 @@
+//! example of using rayon to parallelize a for loop
+
 use rayon::prelude::*;
 
 fn main() {
