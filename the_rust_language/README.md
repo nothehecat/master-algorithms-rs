@@ -133,6 +133,7 @@ fn find_a_match() {
 * variables and references are immutable by default, to make the mutable, you must add `mut`.
 * what makes something a 'variable' is that it gets assigned a computed value at runtime (it's not a constant).
 * constants are declared with `const` and always immutable.
+* when you create a new variable using the same name, it's called shadowing.
 * values can be passed by reference, which is created by `&` and dereferenced by `*`. passing by reference is important when we have a large object and don't wish to copy it.
 
 ```rust
@@ -156,13 +157,11 @@ fn main() {
 * in **Rust**, variables of a type can be casted to another:
 
 ```rust
-fn main() {
-    let mut sum = 0.0;
-    for i in 0..5 {
+let mut sum = 0.0;
+for i in 0..5 {
         sum += i as f64;
-    }
-    println!("sum is {}", sum);
 }
+println!("sum is {}", sum);
 ```
 
 
@@ -196,11 +195,8 @@ fn main() {
 <br>
 
 ```rust
-fn main() {
     let t = true;
-
-    let f: bool = false; // -> explicit type annotation
-}
+    let f: bool = false; // explicit type annotation
 ```
 
 <br>
@@ -213,11 +209,9 @@ fn main() {
 * `char` type is 4 bytes in size and represents a Unicode Scalar Value. They range from `U+0000` to `U+D7FF` and `U+E000` to `U+10FFF` inclusive.
 
 ```rust
-fn main() {
-    let c = 'love';
-    let z: char = 'ℤ'; // with explicit type annotation
-    let love = '🦀';
-}
+let c = 'love';
+let z: char = 'ℤ'; // with explicit type annotation
+let love = '🦀';
 ```
 
 <br>
@@ -230,38 +224,73 @@ fn main() {
 * they have a fixed length (can't change once declared).
 
 ```rust
-fn main() {
-    let tup: (i32, f64, u8) = (500, 6.4, 1);
-}
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+let tup = (500, 6.4, 1);
+let (x, y, z) = tup;
+let x: (i32, f64, u8) = (500, 6.4, 1);
+let five_hundred = x.0;
+let six_point_four = x.1;
+let one = x.2;
 ```
 
+<br>
+
+* or as in a function return:
+
 ```rust
-fn main() {
-    let tup = (500, 6.4, 1);
-
-    let (x, y, z) = tup;
-
-    println!("The value of y is: {y}");
+fn add_mul(x: f64, y: f64) -> (f64, f64) {
+    (x + y, x * y)
 }
-```
 
-```rust
 fn main() {
-    let x: (i32, f64, u8) = (500, 6.4, 1);
-
-    let five_hundred = x.0;
-
-    let six_point_four = x.1;
-
-    let one = x.2;
+    let t = add_mul(2.0, 10.0);
 }
 ```
 
 <br>
 
+
+* `zip()` can combine two iterators into a single iterator of tuples containing the values from both:
+
+```rust
+let names = ["ten", "hundred", "thousand"];
+let nums = [10, 100, 1000];
+for p in names.iter().zip(nums.iter()) {
+    println!(" {} {};", p.0, p.1);
+}
+```
+
+<br>
+
+----
+
+### `struct`
+
+<br>
+
+* structs contain named fields:
+
+```rust
+struct Person {
+    first_name: String,
+    last_name: String
+}
+
+fn main() {
+    let p = Person {
+        first_name: "John".to_string(),
+        last_name: "Smith".to_string()
+    };
+    println!("person {} {}", p.first_name,p.last_name);
+}
+```
+
+
+<br>
+
 ---
 
-##  functions
+## functions
 
 <br>
 
@@ -272,14 +301,11 @@ fn main() {
 * expressions do not include ending semicolons. if you add a semicolon to the end of an expression, you turn it into a statement (and it will not return a value).
 
 ```rust
-fn main() {
-    let y = {
-        let x = 3;
+let y = {
+    let x = 3;
         x + 1
     };
-
-    println!("The value of y is: {y}");
-}
+println!("The value of y is: {y}");
 ```
 
 <br>
@@ -291,6 +317,74 @@ fn plus_one(x: i32) -> i32 {
     x + 1
 }
 ```
+
+<br>
+
+
+
+#### `Option`
+
+<br>
+
+* `Option` is a value that contains either something or `None`.
+* They can be used with `unwrap` and `expect` (the same way as `Result`, which contains a value or an error.)
+
+
+<br>
+
+
+
+
+#### `match`
+
+<br>
+
+
+* `match` is several patterns with a matching value following a fat arrow (`=>`), separated by commas.
+* for example, matching with `Some()` unwraps the value from `Option` and bound it to `var`:
+
+```rust
+let text = "gm, anon";
+match text.find('m') {
+        Some(idx) => {
+            println!("found m at {}", idx);
+            let hi = &text[idx..];
+            println!("hi {}", hi);
+        },
+        None => println!("couldn't find the greeting")
+};
+```
+
+<br>
+
+* or without failure,
+
+```rust
+if let Some(idx) = text.find('n') {
+    println!("hello {}", &text[idx..]);
+}
+```
+
+<br>
+
+
+* match can also operate as a `switch` statement:
+
+```rust
+let n = 2;
+let text = match n {
+        0 => println!("zero"),
+        1 => println!("one"),
+        2 => println!("two"),
+        _ => println!("many"),
+};
+```
+
+<br>
+
+
+* note that `_` is a special fallback case
+
 
 <br>
 
@@ -321,12 +415,35 @@ writeln!(handle, "foo: {}", 1337);
 
 #### `Result` and errors
 
+* a `Result` is defined by two type parameters, for the `Ok` value and for the `Err` value.
 * functions in **Rust** usually don't return a string, but instead, they return a **[Result](https://doc.rust-lang.org/1.39.0/std/result/index.html)**, a `enum` that contains either a `String` or an error of some type (for instance **[std::io::Error](https://doc.rust-lang.org/1.39.0/std/io/type.Result.html)**).
 
 ```rust
 enum Result<T, E> {
    Ok(T),
    Err(E),
+}
+```
+
+* or even:
+
+```rust
+fn leet_or_not(leet: bool) -> Result<i32,String> {
+    if leet {
+        Ok(1337)
+    } else {
+        Err("no".to_string())
+    }
+}
+
+fn main() {
+    println!("{:?}",leet_or_no(true));
+    println!("{:?}",leet_or_no(false));
+
+    match leet_or_no(true) {
+        Ok(n) => println!("Cool, you are {}",n),
+        Err(e) => println!("Huh, {}",e)
+    }
 }
 ```
 
@@ -411,6 +528,11 @@ fn main() -> Result<()> {
 
 <br>
 
+
+* note that `std::io` module defines a type alias `io::Result<T>` which is the same as `Result<T,io::Error>`.
+
+<br>
+
 ---
 ## control flow
 
@@ -419,18 +541,15 @@ fn main() -> Result<()> {
 * A typical `if` loop in Rust:
 
 ```rust
-fn main() {
-    let number = 6;
-
-    if number % 4 == 0 {
+let number = 6;
+if number % 4 == 0 {
         println!("number is divisible by 4");
-    } else if number % 3 == 0 {
+} else if number % 3 == 0 {
         println!("number is divisible by 3");
-    } else if number % 2 == 0 {
+} else if number % 2 == 0 {
         println!("number is divisible by 2");
-    } else {
+} else {
         println!("number is not divisible by 4, 3, or 2");
-    }
 }
 ```
 
@@ -439,12 +558,9 @@ fn main() {
 * **Rust** allows you to use `if` in a `let` statement:
 
 ```rust
-fn main() {
-    let condition = true;
-    let number = if condition { 5 } else { 6 };
-
-    println!("The value of number is: {number}");
-}
+let condition = true;
+let number = if condition { 5 } else { 6 };
+println!("The value of number is: {number}");
 ```
 
 <br>
@@ -461,19 +577,14 @@ fn main() {
 * `loop` can be used to retry an operation that might fails, such as checking whether a thread has completed its job.
 
 ```rust
-fn main() {
-    let mut counter = 0;
-
-    let result = loop {
-        counter += 1;
-
-        if counter == 10 {
-            break counter * 2;
-        }
-    };
-
-    println!("The result is {result}");
-}
+let mut counter = 0;
+let result = loop {
+counter += 1;
+if counter == 10 {
+    break counter * 2;
+    }
+};
+println!("The result is {result}");
 ```
 
 <br>
@@ -481,27 +592,24 @@ fn main() {
 * when there are multiple loops, **Rust** provides loop labels for `break` or `continue`.
 
 ```rust
-fn main() {
-    let mut count = 0;
-    'counting_up: loop {
-        println!("count = {count}");
-        let mut remaining = 10;
+let mut count = 0;
+counting_up: loop {
+    println!("count = {count}");
+    let mut remaining = 10;
 
-        loop {
-            println!("remaining = {remaining}");
-            if remaining == 9 {
-                break;
-            }
-            if count == 2 {
-                break 'counting_up;
-            }
-            remaining -= 1;
+    loop {
+        println!("remaining = {remaining}");
+        if remaining == 9 {
+            break;
         }
-
-        count += 1;
+        if count == 2 {
+            break 'counting_up;
+        }
+            remaining -= 1;
     }
-    println!("End count = {count}");
+    count += 1;
 }
+println!("End count = {count}");
 ```
 
 
@@ -511,12 +619,10 @@ fn main() {
 * a `for` loop tends to be faster and less error-prone than a `while` loop.
 
 ```rust
-fn main() {
-
-    for number in (1..4) {
-        println!("the value is: {number}");
-    }
+for number in (1..4) {
+    println!("the value is: {number}");
 }
+
 ```
 
 <br>
@@ -544,7 +650,25 @@ fn main() {
 * the ownership rules in **Rust** are:
     - each value has an owner
     - there can only be one owner at a time
-    - when the owner goes out of scope, the value will be dropped
+    - when the owner goes out of scope, the value will be dropped (**Rust** is a block-scoped language), meaning that any memory used is reclaimed and any resources owned by that variable are given back to the system (e.g., dropping a `File` closes it).
+
+<br>
+
+#### scope
+
+<br>
+
+* here is an example on how block scope works and how a borrowed value does not live outside of it (i.e., it's dropped from the heap):
+
+```rust
+let s = "gm anon".to_string();
+let mut r = &s;
+{
+    let s = "gm anon".to_string();
+    r = &s;
+}   
+println!("this will cause an error: {}", r);
+```
 
 <br>
 
