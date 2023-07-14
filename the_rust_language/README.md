@@ -1,15 +1,15 @@
-# 🦀 𝟘𝟘𝟘𝟙. the Rust language
+# 🦀 𝟘𝟘𝟘𝟙. the **Rust** language
 
 <br>
 
 
-## 🐚 rust as an ahead-of-time compiled language
+##  **Rust** as an ahead-of-time compiled language
 
 <br>
 
-* the `main` function in rust is always the first code that runs in every executable rust program.
+* let's start with the very basics. the `main` function in **Rust** is always the first code that runs in every executable **Rust** program.
 
-* in any directory, compile and run a Rust program with:
+* in any directory, compile and run a **Rust** program with:
 
 
 ```sh
@@ -20,14 +20,14 @@ rustc main.rs
 
 <br>
 
+----
 
-
-### cargo
+## cargo
 
 <br>
 
-* **[cargo](https://doc.rust-lang.org/cargo/)** is a dependency manager and build tool, which makes adding, compiling, and managing dependencies painless and consistent across the Rust ecosystem.
-* a crate is a collection of Rust source code files. cargo coordinates external crates in the `Cargo.toml` file. 
+* you rarely use `rustc`, though. instead, **[cargo](https://doc.rust-lang.org/cargo/)** is a dependency manager and build tool, which makes adding, compiling, and managing dependencies painless and consistent across the **Rust** ecosystem.
+* a crate is a collection of **Rust** source code files. cargo coordinates external crates in the `Cargo.toml` file. 
 * you can add a new crate with `cargo add <crate name>` and update with `cargo update <crate name>`.
 
 <br>
@@ -57,7 +57,7 @@ cargo new gm_world
 
 <br>
 
-* alternatively, in any directory, compile and run a rust program with:
+* alternatively, in any directory, compile and run a **Rust** program with:
 
 
 ```sh
@@ -92,18 +92,22 @@ cargo check
 
 <br>
 
-### other in-box tools
+---
+## other in-box tools
 
 <br>
 
-* **[rustc](https://doc.rust-lang.org/rustc/index.html)** is the compiler for Rust, provided by the project itself (as we saw in the beginning of this doc), which includes built-in testing and linting.
+* **[rustc](https://doc.rust-lang.org/rustc/index.html)** is the compiler for **Rust**, provided by the project itself (as we saw in the beginning of this doc), which includes built-in testing and linting.
 * **[rustfmt](https://rust-lang.github.io/rustfmt/?version=v1.6.0&search=)** is a formatting tool ensuring a consistent coding style across developers.
-* **[rustdocs](https://doc.rust-lang.org/rustdoc/index.html)** is the Rust's standard tool called that generates markdown or HTML documentation for Rust projects. files should start with ` //!` to indicate module-level or crate-level documentation.
-* **rustup** can be used to run rust standard documentation in your browser (with `rustup doc --std`).
+* **[rustdocs](https://doc.rust-lang.org/rustdoc/index.html)** is Rust's standard tool called that generates markdown or HTML documentation for **Rust** projects. files should start with ` //!` to indicate module-level or crate-level documentation.
+* **rustup** can be used to run **Rust** standard documentation in your browser (with `rustup doc --std`).
 
 <br>
 
-### traits
+---
+## traits
+
+<br>
 
 * traits allow you to abstract behavior that can be shared by different types, so that the code can express ideas in very generic and flexible ways.
 * traits can be the descriptive line on top of functions:
@@ -114,7 +118,7 @@ fn find_a_match() {
 }
 ```
 
-* each operator (like `+=`) corresponds to a trait, which is like an abstract interface that must be implemented for each concrete type.
+* each operator (like `+=`) corresponds to a trait, like an abstract interface that must be implemented for each concrete type.
 
 
 <br>
@@ -122,7 +126,7 @@ fn find_a_match() {
 
 ---
 
-## 🐚 variables
+##  variables
 
 <br>
 
@@ -146,10 +150,10 @@ fn main() {
 
 <br>
 
-* rust handles potential failure with `Result`, which is an `enumeration` (`enum`, a type that can be in one of multiple possible states or variant).
+* **Rust** handles potential failure with `Result`, which is an `enumeration` (`enum`, a type that can be in one of multiple possible states or variant).
 * a scalar type represents a single value. there are four main scalar types in Rust.
 * a compound type can group multiple values into one type. there are two primitive compound types: tuples and arrays.
-* in rust, variables of a type can be casted to another:
+* in **Rust**, variables of a type can be casted to another:
 
 ```rust
 fn main() {
@@ -166,12 +170,14 @@ fn main() {
 
 ### integers
 
+<br>
+
 * Types are: `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `i128`, `u128`. In doubt, default to `i32`.
 * signed or unsigned refers to whether the number can be negative, i.e., have a sign.
 * each signed variant can store numbers from `-(2^{n-1})` to `2^{n-1} - 1` inclusive, where `n` is the number of bits.
 * each signed variables can store numbers from `0` to `2^n - 1`.
 * the `isize` and `usize` types depend on the architecture of the computer (e.g., 64 bits if you are on a 64-bit architecture).
-* When Rust is compiled on debug mode, Rust will include checks for integer overflow, however when compiled with `--release`, these checks are not included and the value will "wrap around" the size of the variable (e.g. in `iu8`, 256 becomes 0).
+* When **Rust** is compiled on debug mode, **Rust** will include checks for integer overflow, however when compiled with `--release`, these checks are not included and the value will "wrap around" the size of the variable (e.g. in `iu8`, 256 becomes 0).
 * Rust's standard library also offers to help with the possibility of overflow, such as `wrapping_*`, `checked_*`, `overflowing_*`, and `saturating_*`.
 
 
@@ -179,11 +185,15 @@ fn main() {
 
 ### floating-point numbers
 
+<br>
+
 * Types are `f32` and `f64`, default to `f64`.
 
 <br>
 
 ### booleans
+
+<br>
 
 ```rust
 fn main() {
@@ -196,6 +206,8 @@ fn main() {
 <br>
 
 ### characters
+
+<br>
 
 * `char` literals are specified with single quotes (as opposed to string literals that use double quotes).
 * `char` type is 4 bytes in size and represents a Unicode Scalar Value. They range from `U+0000` to `U+D7FF` and `U+E000` to `U+10FFF` inclusive.
@@ -212,7 +224,9 @@ fn main() {
 
 ### tuples
 
-* a `tup` is a general way of grouping many values with a variety of types.
+<br>
+
+* a `tup` is a general way of grouping many values with various types.
 * they have a fixed length (can't change once declared).
 
 ```rust
@@ -245,147 +259,9 @@ fn main() {
 
 <br>
 
-### arrays 
-
-<br>
-
-* all statically-typed languages have arrays, which are values packed in memory.
-* unlike a tuple, every element of an array must have the same type.
-* arrays must have a fixed length. they can be mutable but you cannot add new elements.
-* they allocate data in the stack rather than the heap.
-
-
-```rust
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-    let b: [i32; 5] = [1, 2, 3, 4, 5];
-}
-```
-
-<br>
-
-* you can also initialize an array containing the same value (1) and a given length (4):
-
-```rust
-let c = [1; 4;
-```
-
-<br>
-
-* examples of how you can print arrays in Rust:
-
-```rust
-fn main() {
-    let ints = [1, 2, 3];
-    let floats = [1.1, 2.1, 3.1];
-    let strings = ["hello", "world"];
-    let ints_ints = [[1, 2], [10, 20]];
-    println!("ints {:?}", ints);
-    println!("floats {:?}", floats);
-    println!("strings {:?}", strings);
-    println!("ints_ints {:?}", ints_ints);
-}
-```
-
-<br>
-
-which results to:
-
-```rust
-ints [1, 2, 3]
-floats [1.1, 2.1, 3.1]
-strings ["hello", "world"]
-ints_ints [[1, 2], [10, 20]]
-```
-
-<br>
-
-
-* Rust will panic if a *runtime error* occurs when attempting to access the array with an invalid index. however, there is a slice method `get` which does not panic:
-
-```rust
-fn main() {
-    let ints = [1, 2, 3, 4, 5];
-    let slice = &ints;
-    let first = slice.get(0);
-    let last = slice.get(5);
-
-    println!("first {:?}", first);
-    println!("last {:?}", last);
-}
-```
-<br>
-
-* slices are more frequently used than arrays. they are views into an underlying array of values, in the sense that slices give you different views of the same array where a copy of data is never made.
-* slices keep track of their size and will panic if you try to access outside that size.
-* you explicitly say you want to pass an array as a slice by using `&` (call it "borrow", and note that it remains owned by the original owner).
-
-```rust
-fn sum(values: &[i32]) -> i32 {
-    let mut res = 0;
-    for i in 0..values.len() {
-        res += values[i]
-    }
-    res
-}
-
-fn main() {
-    let arr = [10,20,30,40];
-    // look at that &
-    let res = sum(&arr);
-    println!("sum {}", res);
-}
-```
-
-<br>
-
-
-### vectors
-
-* a vector is a similar collection type provided by the standard library that can change size (they behave like Python's lists).
-
-```rust
-fn main() {
-    let mut v = Vec::new();
-    v.push(10);
-    v.push(20);
-    v.push(30);
-
-    let first = v[0];  // will panic if out-of-range
-    let maybe_first = v.get(0);
-
-    println!("v is {:?}", v);
-    println!("first is {}", first);
-    println!("maybe_first is {:?}", maybe_first);
-}
-```
-
-which can be sliced like:
-
-```rust
-fn dump(arr: &[i32]) {
-    println!("arr is {:?}", arr);
-}
-
-fn main() {
-    let mut v = Vec::new();
-    v.push(10);
-    v.push(20);
-    v.push(30);
-
-    dump(&v);
-
-    let slice = &v[1..];
-    println!("slice is {:?}", slice);
-}
-```
-
-
-<br>
-
 ---
 
-## 🐚 functions
+##  functions
 
 <br>
 
@@ -423,7 +299,7 @@ fn plus_one(x: i32) -> i32 {
 
 <br>
 
-* a `!` (as in `println!`) calls a Rust macro (see more details on **[formatted_print](formatted_print/)**).
+* a `!` (as in `println!`) calls a **Rust** macro (see more details on **[formatted_print](formatted_print/)**).
 * `{}` is the default placeholder type that works for numbers and strings, but not all the types. in other cases, for example `vec`, the debug representation `{:?}` works.
 * note that printing to the terminal is very slow. you want to reduce the number of writes that "flush" to the terminal. you can also wrap your `stdout` handle in a **[BugWriter](https://doc.rust-lang.org/1.39.0/std/io/struct.BufWriter.html)**, which by default, buffers up to 8 kB.
 
@@ -445,7 +321,7 @@ writeln!(handle, "foo: {}", 1337);
 
 #### `Result` and errors
 
-* functions in rust usually don't return a string, but instead, they return a **[Result](https://doc.rust-lang.org/1.39.0/std/result/index.html)**, a `enum` that contains either a `String` or an error of some type (for instance **[std::io::Error](https://doc.rust-lang.org/1.39.0/std/io/type.Result.html)**).
+* functions in **Rust** usually don't return a string, but instead, they return a **[Result](https://doc.rust-lang.org/1.39.0/std/result/index.html)**, a `enum` that contains either a `String` or an error of some type (for instance **[std::io::Error](https://doc.rust-lang.org/1.39.0/std/io/type.Result.html)**).
 
 ```rust
 enum Result<T, E> {
@@ -535,7 +411,8 @@ fn main() -> Result<()> {
 
 <br>
 
-### control flow
+---
+## control flow
 
 <br>
 
@@ -559,7 +436,7 @@ fn main() {
 
 <br>
 
-* Rust allows you to use `if` in a `let` statement:
+* **Rust** allows you to use `if` in a `let` statement:
 
 ```rust
 fn main() {
@@ -572,7 +449,7 @@ fn main() {
 
 <br>
 
-* In Rust, there are three kinds of loops: `loop`, `while`, and `for`.
+* In **Rust**, there are three kinds of loops: `loop`, `while`, and `for`.
 * `break` and `continue` can be used to break from the loop.
 
 <br>
@@ -601,7 +478,7 @@ fn main() {
 
 <br>
 
-* when there are multiple loops, Rust provides loop labels for `break` or `continue`.
+* when there are multiple loops, **Rust** provides loop labels for `break` or `continue`.
 
 ```rust
 fn main() {
@@ -646,12 +523,12 @@ fn main() {
 
 ---
 
-## 🐚 ownership
+## ownership
 
 <br>
 
-* ownership is a set of rules that govern how Rust manages memory.
-* While some languages have garbage collection and others need explicit memory de-allocation, Rust uses a system of ownership with a set of rules that the compiler checks (so that the program won't compile if any of the rules are violated).
+* ownership is a set of rules that govern how **Rust** manages memory.
+* While some languages have garbage collection and others need explicit memory de-allocation, **Rust** uses a system of ownership with a set of rules that the compiler checks (so that the program won't compile if any rules are violated).
 
 <br>
 
@@ -662,62 +539,15 @@ fn main() {
 * allocating data on the stack is fast, but limited (~megabytes), allocating data on the heap is expensive and the memory needs to be freed later (~gigabytes).
 * allocating a space in the heap (and returning its pointer) is slower than pushing to the stack. it also requires more work because the allocator must find a larger enough space to hold the data.
 * keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap are all problems that ownership addresses.
-* when a vector is modified or created, it allocates from the heap and becomes the owner of that memory. the slice borrows the memory from the vector and when the vector dies or drop, the memory goes.
+* when a vector is modified or created, it allocates from the heap and becomes the memory owner. the slice borrows the memory from the vector and when the vector dies or drop, the memory goes.
 
-* the ownership rules in Rust are:
+* the ownership rules in **Rust** are:
     - each value has an owner
     - there can only be one owner at a time
     - when the owner goes out of scope, the value will be dropped
 
 <br>
 
-### the `String` type
 
-<br>
-
-* `String` is a more complex variable type on which the data is stored in the heap, instead of the stack. This allows an amount of text that is unknown at the compile time.
-
-
-```rust
-let s = String::from("hello");
-```
-
-<br>
-
-
-* the double colon `::` operator allows to namespace a particular function (`from`), under the `String`. With `String::from`, the memory is requested from the memory allocator at runtime. 
-* in terms of freeing the memory: in Rust, the memory is automatically returned once the variable that owns it goes out of scope (at the closing curly bracket), by a function called `drop`. At that point, the author of `String` can put the code to return the memory.
-* a `String` is made up of three parts: a pointer to the heap memory that holds the contents of the string, a length (how much memory in bytes), and a capacity (all stored on the stack).
-* if we copy the value of one variable to another (as below), to guarantee memory safety, the first variable is no longer valid (similar to *shallow copy* in Python, but it's called *move* in Rust):
-
-```rust
-let s1 = String::from("hello");
-let s2 = s1;
-```
-
-<br>
-
-#### `clone`
-
-* Rust will never automatically create "deep" copies of your data (default to be inexpensive in terms of runtime performance).
-* To deeply copy the heap data of the `String`, not just the stack data (the pointer), Rust offers the methods `clone` (which is more expensive):
-
-```rust
-let s1 = String::from("gm anon");
-let s2 = s1.clone();
-
-println!("s1 = {}, s2 = {}", s1, s2);
-```
-
-* Remember that integers have a known size at compile time and are stored entirely on the stack, therefore copies are quick and there is no difference between deep and shallow copy.
-
-<br>
-
-#### `Copy`
-
-* Rust has an annotation called `Copy`, that can place on types that are stored on the stack.
-* with the `Copy` trait, variables do not move, but are trivially copied, making them still valid after assignment to another variable.
-* if the type has implemented `Drop` trait, Rust won't let us annotate a type with `Copy`.
-
-<br>
+---
 
