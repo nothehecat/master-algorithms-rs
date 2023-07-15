@@ -104,25 +104,6 @@ cargo check
 
 <br>
 
----
-## traits
-
-<br>
-
-* traits allow you to abstract behavior that can be shared by different types, so that the code can express ideas in very generic and flexible ways.
-* traits can be the descriptive line on top of functions:
-
-```rust
-#[test]
-fn find_a_match() {
-}
-```
-
-* each operator (like `+=`) corresponds to a trait, like an abstract interface that must be implemented for each concrete type.
-
-
-<br>
-
 
 ---
 
@@ -249,7 +230,7 @@ fn main() {
 
 <br>
 
-
+* tuple can act as an iterator, i.e. a `struct` with a `next` methods which can return `Some` or `None` (and the data being iterated over does not change).
 * `zip()` can combine two iterators into a single iterator of tuples containing the values from both:
 
 ```rust
@@ -262,31 +243,8 @@ for p in names.iter().zip(nums.iter()) {
 
 <br>
 
-----
-
-### `struct`
-
-<br>
-
-* structs contain named fields:
-
-```rust
-struct Person {
-    first_name: String,
-    last_name: String
-}
-
-fn main() {
-    let p = Person {
-        first_name: "John".to_string(),
-        last_name: "Smith".to_string()
-    };
-    println!("person {} {}", p.first_name,p.last_name);
-}
-```
 
 
-<br>
 
 ---
 
@@ -322,7 +280,7 @@ fn plus_one(x: i32) -> i32 {
 
 
 
-#### `Option`
+### `Option`
 
 <br>
 
@@ -335,7 +293,7 @@ fn plus_one(x: i32) -> i32 {
 
 
 
-#### `match`
+### `match`
 
 <br>
 
@@ -389,7 +347,7 @@ let text = match n {
 <br>
 
 
-#### macros
+### macros
 
 <br>
 
@@ -413,7 +371,7 @@ writeln!(handle, "foo: {}", 1337);
 
 <br>
 
-#### `Result` and errors
+### `Result` and errors
 
 * a `Result` is defined by two type parameters, for the `Ok` value and for the `Err` value.
 * functions in **Rust** usually don't return a string, but instead, they return a **[Result](https://doc.rust-lang.org/1.39.0/std/result/index.html)**, a `enum` that contains either a `String` or an error of some type (for instance **[std::io::Error](https://doc.rust-lang.org/1.39.0/std/io/type.Result.html)**).
@@ -424,6 +382,8 @@ enum Result<T, E> {
    Err(E),
 }
 ```
+
+<br>
 
 * or even:
 
@@ -532,6 +492,27 @@ fn main() -> Result<()> {
 * note that `std::io` module defines a type alias `io::Result<T>` which is the same as `Result<T,io::Error>`.
 
 <br>
+
+
+
+### directives
+
+<br>
+
+* directives can be used as a descriptive line on top of functions:
+
+```rust
+#[test]
+fn find_a_match() {
+}
+```
+
+* each operator (like `+=`) corresponds to a trait, like an abstract interface that must be implemented for each concrete type.
+* the `#[derive(Debug)]` directive can be put instead of primitives such as `struct` so that they can be printed out.
+
+
+<br>
+
 
 ---
 ## control flow
@@ -654,7 +635,7 @@ for number in (1..4) {
 
 <br>
 
-#### scope
+### scope
 
 <br>
 
@@ -672,6 +653,120 @@ println!("this will cause an error: {}", r);
 
 <br>
 
+* another trick is explicitly specifying lifetime with something like `'a` (`a` borrows from `s` and cannot outlive it):
+
+```rust
+#[derive(Debug)]
+struct A <'a> {
+    s: &'a str
+}
+
+fn main() {
+    let s = "gm".to_string();
+    let a = A { s: &s };
+
+    println!("{:?}", a);
+}
+```
+
+<br>
 
 ---
+
+
+### `struct` and `impl`
+
+<br>
+
+* structs contain named fields:
+
+```rust
+struct Person {
+    first_name: String,
+    last_name: String
+}
+
+fn main() {
+    let p = Person {
+        first_name: "John".to_string(),
+        last_name: "Snow".to_string()
+    };
+    println!("Stark: {} {}", p.first_name,p.last_name);
+}
+```
+
+<br>
+
+* initializing a `struct` is weird, so we can create an associated function of `Person` in a `impl` block, i.e., a `Person` method that takes a reference self-argument:
+
+```rust
+struct Person {
+    first_name: String,
+    last_name: String
+}
+
+impl Person {
+    fn new(first: &str, name: &str) -> Person {
+        Person {
+            first_name: first.to_string(),
+            last_name: name.to_string()
+        }
+    }
+}
+
+fn main() {
+    let p = Person::new("John","Snow");
+    println!("Stark: {} {}", p.first_name,p.last_name);
+}
+```
+
+<br>
+
+
+* `&self` is the same  as `self: &Person`. if you don't use a `self` argument, you can associate functions with structs with the `new` constructor. with `&self` you can use the values of the `struct` without changing them (unless you use `&mut self`). the `self` argument consumes the value, moving it.
+
+<br>
+
+
+----
+
+### traits
+
+<br>
+
+* traits allow you establish relationships between types.
+* traits allow you to abstract behavior that can be shared by different types, so that the code can express ideas in very generic and flexible ways.
+* here is a simple example:
+
+```rust
+trait Show {
+    fn show(&self) -> String;
+}
+
+impl Show for i32 {
+    fn show(&self) -> String {
+        format!("four-byte signed {}", self)
+    }
+}
+
+impl Show for f64 {
+    fn show(&self) -> String {
+        format!("eight-byte float {}", self)
+    }
+}
+
+fn main() {
+    let answer = 42;
+    let maybe_pi = 3.14;
+    let s1 = answer.show();
+    let s2 = maybe_pi.show();
+    println!("show {}", s1);
+    println!("show {}", s2);
+}
+```
+
+
+
+
+<br>
 

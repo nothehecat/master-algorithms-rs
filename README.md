@@ -31,8 +31,8 @@
 - [copying](the_rust_language/copying)
 - [scope](the_rust_language/scope)
 - [tuples](the_rust_language/tuples)
-- [structs](the_rust_language/structes)
-
+- [structs](the_rust_language/structs)
+- [traits](the_rust_language/traits)
 
 ### 𝟘𝟘𝟙𝟘. **[arrays, vectors, strings](arrays_and_strings)**
 
@@ -100,7 +100,7 @@
 <br>
 
 * **[the Rust book](https://doc.rust-lang.org/)**
-* **[google's on Rust](https://github.com/google/comprehensive-rust)**
+* **[google on Rust](https://github.com/google/comprehensive-rust)**
 * **[our web3-toolkit-rs](https://github.com/go-outside-labs/web3-toolkit-rs)**
-* **[book on algorithms (Python)](https://github.com/go-outside-labs/algorithms-book-py)**
+* **[book on algorithms (py)](https://github.com/go-outside-labs/algorithms-book-py)**
 
