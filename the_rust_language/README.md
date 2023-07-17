@@ -770,3 +770,52 @@ fn main() {
 
 <br>
 
+
+---
+
+### `enum`
+
+<br>
+
+* enum can have methods defined to them, like structs.
+
+```rust
+enum Fruits {
+    apple,
+    banana,
+    pear
+}
+```
+
+<br>
+
+* the match expression is the usual eay to handle `enum` values:
+
+```rust
+match *self {
+    Fruits::apple => "apple",
+    Fruits::banana => "banana",
+    Fruits::pear => "pear"
+}
+```
+
+<br>
+
+* enums can store different values in type-safe way:
+
+```rust
+enum Value {
+    Number(f64),
+    Str(String),
+    Bool(bool)
+}
+
+fn main() {
+    use Value::*;
+    let n = Number(2.3);
+    let s = Str("gm".to_string());
+    let b = Bool(true);
+
+    println!("n {:?} s {:?} b {:?}", n,s,b);
+}
+```
