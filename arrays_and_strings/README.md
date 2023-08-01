@@ -403,3 +403,19 @@ println!("s1 = {}, s2 = {}", s1, s2);
 <br>
 
 * the `filter` method takes a closure (lambdas or anonymous functions).
+
+
+<br>
+
+---
+
+## examples
+
+<br>
+
+- [arrays](simple_arrays/)
+- [iterators](iterators/)
+- [slices](slice/)
+- [option](option/)
+- [strings](strings/)
+
