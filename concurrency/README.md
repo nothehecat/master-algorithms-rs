@@ -35,6 +35,21 @@ writeln!(handle, "foo: {}", 1337);
 
 ---
 
+### examples
+
+<br>
+
+
+- [short-lived threads](concurrency/short_lived_threads/)
+- [parallel pipeline](concurrency/parallel_pipeline/)
+- [rayon example](concurrency/rayon_example)
+
+
+<br>
+
+
+---
+
 ### external resources
 
 <br>
@@ -42,3 +57,4 @@ writeln!(handle, "foo: {}", 1337);
 * **[rayon crate for data-parallelism](https://docs.rs/rayon/latest/rayon/)**
 * **[crossbean crate for concurrency](https://docs.rs/crossbeam/latest/crossbeam/)**
 * **[lazy_static crate for declaring lazily evaluated statics](https://docs.rs/lazy_static/latest/lazy_static/)**
+
