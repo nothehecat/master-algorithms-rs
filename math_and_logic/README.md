@@ -10,6 +10,24 @@
 
 <br>
 
+----
+
+### add examples
+
+<br>
+
+- [recursive factorial](factorial/)
+- [matrices operations](math_and_logic/matrices)
+- [trigonometry](math_and_logic/trigonometry/)
+- [complex numbers](math_and_logic/complex_numbers)
+- [statistics](math_and_logic/statistics)
+- [standard deviation](math_and_logic/standard_deviation/)
+- [big integers](math_and_logic/big_integers/)
+- [idiomatic sum](math_and_logic/idiomatic_sum/)
+
+
+<br>
+
 ---
 
 ### external resources
