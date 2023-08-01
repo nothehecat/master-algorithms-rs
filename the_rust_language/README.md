@@ -2,7 +2,6 @@
 
 <br>
 
-
 ##  **Rust** as an ahead-of-time compiled language
 
 <br>
@@ -819,3 +818,24 @@ fn main() {
     println!("n {:?} s {:?} b {:?}", n,s,b);
 }
 ```
+
+<br>
+
+----
+
+## examples
+
+<br>
+
+- [gm world](the_rust_language/gm_world/)
+- [guessing game](the_rust_language/guessing_game/)
+- [random numbers](the_rust_language/random_numbers)
+- [formatted print](the_rust_language/formatted_print)
+- [matching](the_rust_language/matching)
+- [copying](the_rust_language/copying)
+- [scope](the_rust_language/scope)
+- [tuples](the_rust_language/tuples)
+- [structs](the_rust_language/structs)
+- [traits](the_rust_language/traits)
+
+<br>
