@@ -1,4 +1,4 @@
-# 🦀👾 algorithms and data structures in Rust
+# 🦀👾 master algorithms with rust
 
 <br>
 
@@ -7,9 +7,9 @@
 <br>
 
 
-**🟣 Rust is a strong-typed (you can't work around the type system, like Python) and static-typed language (the type is known at the compile time, like C), designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.**
+**🟣 rust is a strong-typed (you can't work around the type system, like Python) and static-typed language (the type is known at the compile time, like C), designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.**
 
-**🟪 in this project, we learn Rust the right way: by tackling classical algorithms and data structures problems.**
+**🟪 in this project, we learn algorithms the right way: with rust!**
 
 <br>
 
@@ -21,7 +21,7 @@
 <br>
 
 
-### 𝟘𝟘𝟘𝟙. **[the Rust lang](the_rust_language)**
+### 𝟘𝟘𝟘𝟙. **[the rust language](the_rust_language)**
 
 ### 𝟘𝟘𝟙𝟘. **[arrays, vectors, strings](arrays_and_strings)**
 
@@ -51,7 +51,7 @@
 
 <br>
 
-* **[the Rust book](https://doc.rust-lang.org/)**
+* **[the rust book](https://doc.rust-lang.org/)**
 * **[google on Rust](https://github.com/google/comprehensive-rust)**
 * **[our web3-toolkit-rs](https://github.com/go-outside-labs/web3-toolkit-rs)**
 * **[book on algorithms (py)](https://github.com/go-outside-labs/algorithms-book-py)**
