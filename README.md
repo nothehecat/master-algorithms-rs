@@ -1,4 +1,4 @@
-# 🦀👾 master algorithms with rust
+# 🦀👾 [ongoing] master algorithms with rust
 
 <br>
 
