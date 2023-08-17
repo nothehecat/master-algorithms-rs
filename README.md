@@ -9,7 +9,7 @@
 
 **🟣 rust is a strong-typed (you can't work around the type system, like Python) and static-typed language (the type is known at the compile time, like C), designed to guide developers towards reliable and efficient code in terms of speed, memory usage, and security.**
 
-**🟪 in this project, we learn algorithms the right way: with rust!**
+**🟪 in this project, we learn rust with algorithms problems**
 
 <br>
 
